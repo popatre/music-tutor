@@ -1,17 +1,23 @@
 import React, { useState } from "react";
+import GameOverScreen from "./GameOverScreen";
 
 function StaveGame() {
-    const [randomNote, setRandomNote] = useState("f");
-    const [score, setScore] = useState(0);
-    const [timer, setTimer] = useState(20);
+    const [randomNote, setRandomNote] = useState<string>("f");
+    const [score, setScore] = useState<number>(0);
+    const [timer, setTimer] = useState<number>(20);
+    const [isGameOver, setIsGameOver] = useState<boolean>(false);
+    const [gameStarted, setGameStarted] = useState(false);
 
     const startTimer = () => {
+        setGameStarted(true);
         let count = timer;
         const timerInterval = window.setInterval(() => {
             setTimer((prevTimer) => (prevTimer += -1));
             count--;
             if (count === 0) {
                 clearInterval(timerInterval);
+                setIsGameOver(true);
+                setGameStarted(false);
             }
         }, 1000);
     };
@@ -37,21 +43,30 @@ function StaveGame() {
             setScore((prevScore) => (prevScore += -1));
         }
     };
-    return (
+    return !isGameOver ? (
         <div>
             <h2>Score: {score}</h2>
             <h2>Time Remaining:{timer}</h2>
             <img src={noteImgUrls[randomNote]} alt="Note on a stave" />
-            <button onClick={startTimer}>Start Timer</button>
-            <div>
-                <button name="d" onClick={() => checkAnswer("d")}>
-                    D
-                </button>
-                <button onClick={() => checkAnswer("e")}>E</button>
-                <button onClick={() => checkAnswer("f")}>F</button>
-                <button onClick={() => checkAnswer("g")}>G</button>
-            </div>
+            {!gameStarted && <button onClick={startTimer}>Start Timer</button>}
+            {gameStarted && (
+                <div>
+                    <button name="d" onClick={() => checkAnswer("d")}>
+                        D
+                    </button>
+                    <button onClick={() => checkAnswer("e")}>E</button>
+                    <button onClick={() => checkAnswer("f")}>F</button>
+                    <button onClick={() => checkAnswer("g")}>G</button>
+                </div>
+            )}
         </div>
+    ) : (
+        <GameOverScreen
+            score={score}
+            setIsGameOver={setIsGameOver}
+            setTimer={setTimer}
+            setScore={setScore}
+        />
     );
 }
 
