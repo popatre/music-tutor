@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import GameOverScreen from "./GameOverScreen";
 
-function StaveGame() {
+type Props = {
+    noteImgUrls: { [key: string]: string };
+};
+
+function StaveGame({ noteImgUrls }: Props) {
     const [randomNote, setRandomNote] = useState<string>("f");
     const [score, setScore] = useState<number>(0);
     const [timer, setTimer] = useState<number>(20);
@@ -22,13 +26,6 @@ function StaveGame() {
         }, 1000);
     };
 
-    const noteImgUrls: { [key: string]: string } = {
-        f: "https://www.musictheoryacademy.com/wp-content/uploads/2020/06/Treble-Clef-Notes-Quiz-low-F.jpg",
-        d: "https://www.musictheoryacademy.com/wp-content/uploads/2020/06/Treble-Clef-Notes-Quiz-D.jpg",
-        e: "https://www.musictheoryacademy.com/wp-content/uploads/2020/06/Treble-Clef-Notes-Quiz-E.jpg",
-        F: "https://www.musictheoryacademy.com/wp-content/uploads/2020/06/Treble-Clef-Notes-Quiz-F.jpg",
-        g: "https://www.musictheoryacademy.com/wp-content/uploads/2020/06/Treble-Clef-Notes-Quiz-G.jpg",
-    };
     const pickRandomNote = () => {
         const letters = ["f", "d", "e", "g", "F"];
         const randomNumber = Math.floor(Math.random() * letters.length);

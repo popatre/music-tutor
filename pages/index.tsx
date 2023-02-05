@@ -24,10 +24,12 @@ export default function Home() {
             </Head>
             <main className={styles.main}>
                 <h1>Music Theory Challenge</h1>
-                <button onClick={() => handleClick("/stave-challenge")}>
-                    Notes on a Stave
+                <button onClick={() => handleClick("/stave-challenge/treble")}>
+                    Treble Clef Notes Quiz
                 </button>
-                <button>Hello</button>
+                <button onClick={() => handleClick("/stave-challenge/bass")}>
+                    Bass Clef Notes Quiz
+                </button>
                 <button>Hello</button>
             </main>
         </>
