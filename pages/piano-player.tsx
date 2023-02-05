@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect, KeyboardEvent } from "react";
 import styles from "@/styles/Piano.module.css";
 import useSound from "use-sound";
 
@@ -17,6 +17,12 @@ export default function PianoPlayer() {
     const [playF] = useSound("/audio/F.mp3");
     const [playG] = useSound("/audio/G.mp3");
     const [playGb] = useSound("/audio/Gb.mp3");
+
+    useEffect(() => {
+        window.addEventListener("keydown", handleKeyPress, false);
+        return () =>
+            window.removeEventListener("keydown", handleKeyPress, false);
+    }, []);
 
     const keyRef = useRef<HTMLDivElement>(null);
 
@@ -46,6 +52,11 @@ export default function PianoPlayer() {
                 return { ...prevState, [note]: "" };
             });
         }, 200);
+    };
+
+    const handleKeyPress = ({ key }: KeyDownEvent) => {
+        const note = key.toUpperCase();
+        eval(`play${note}()`);
     };
 
     return (
@@ -113,18 +124,6 @@ export default function PianoPlayer() {
                     className={`${styles.key} ${styles.white} ${keyPressed.B}`}
                 ></div>
             </div>
-            {/* <audio id="C" src="../audio/C.mp3"></audio>
-            <audio id="Db" src="../audio/Db.mp3"></audio>
-            <audio id="D" src="../audio/D.mp3"></audio>
-            <audio id="Eb" src="../audio/Eb.mp3"></audio>
-            <audio id="E" src="../audio/E.mp3"></audio>
-            <audio id="F" src="../audio/F.mp3"></audio>
-            <audio id="Gb" src="../audio/Gb.mp3"></audio>
-            <audio id="G" src="../audio/G.mp3"></audio>
-            <audio id="Ab" src="../audio/Ab.mp3"></audio>
-            <audio id="A" src="../audio/A.mp3"></audio>
-            <audio id="Bb" src="../audio/Bb.mp3"></audio>
-            <audio id="B" src="../audio/B.mp3"></audio> */}
         </main>
     );
 }
