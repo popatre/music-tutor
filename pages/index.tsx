@@ -30,7 +30,9 @@ export default function Home() {
                 <button onClick={() => handleClick("/stave-challenge/bass")}>
                     Bass Clef Notes Quiz
                 </button>
-                <button>Hello</button>
+                <button onClick={() => handleClick("/piano-player")}>
+                    Piano Player
+                </button>
             </main>
         </>
     );
