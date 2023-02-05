@@ -27,7 +27,7 @@ function StaveGame({ noteImgUrls }: Props) {
     };
 
     const pickRandomNote = () => {
-        const letters = ["f", "d", "e", "g", "F"];
+        const letters = Object.keys(noteImgUrls);
         const randomNumber = Math.floor(Math.random() * letters.length);
         setRandomNote(letters[randomNumber]);
     };
