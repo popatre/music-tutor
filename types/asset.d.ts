@@ -3,4 +3,4 @@ declare module "*.mp3" {
     export default value;
 }
 
-declare type KeyDownEvent = { key: string };
+declare type KeyDownEvent = { key: string; repeat: boolean };

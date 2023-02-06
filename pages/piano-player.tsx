@@ -73,7 +73,6 @@ export default function PianoPlayer() {
 
     const handleClick = (note: string) => {
         eval(`play${note}()`);
-
         setKeyPressed((prevState) => {
             return { ...prevState, [note]: styles.active };
         });
@@ -84,11 +83,12 @@ export default function PianoPlayer() {
         }, 200);
     };
 
-    const handleKeyDown = ({ key }: KeyDownEvent) => {
+    const handleKeyDown = ({ key, repeat }: KeyDownEvent) => {
         const note = keyMap[key];
         setKeyPressed((prevState) => {
             return { ...prevState, [note]: styles.active };
         });
+        if (repeat) return;
         playSounds(key);
     };
 
