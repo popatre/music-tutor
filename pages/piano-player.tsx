@@ -35,8 +35,10 @@ export default function PianoPlayer() {
     useEffect(() => {
         window.addEventListener("keydown", handleKeyDown, false);
         window.addEventListener("keyup", handleKeyUp, false);
-        return () =>
+        return () => {
             window.removeEventListener("keydown", handleKeyDown, false);
+            window.removeEventListener("keyup", handleKeyUp, false);
+        };
     }, [
         exposedDataC.sound,
         exposedDataGb.sound,
