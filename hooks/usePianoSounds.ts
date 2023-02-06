@@ -2,18 +2,33 @@ import useSound from "use-sound";
 import { PlayFunction } from "use-sound/dist/types";
 
 export default function usePianoSounds() {
-    const [playA] = useSound("/audio/A.mp3");
-    const [playAb] = useSound("/audio/Ab.mp3");
-    const [playB] = useSound("/audio/B.mp3");
-    const [playBb] = useSound("/audio/Bb.mp3");
-    const [playC, exposedData] = useSound("/audio/C.mp3");
-    const [playD] = useSound("/audio/D.mp3");
-    const [playDb] = useSound("/audio/Db.mp3");
-    const [playE] = useSound("/audio/E.mp3");
-    const [playEb] = useSound("/audio/Eb.mp3");
-    const [playF] = useSound("/audio/F.mp3");
-    const [playG] = useSound("/audio/G.mp3");
-    const [playGb] = useSound("/audio/Gb.mp3");
+    const [playA, exposedDataA] = useSound("/audio/A.mp3");
+    const [playAb, exposedDataAb] = useSound("/audio/Ab.mp3");
+    const [playB, exposedDataB] = useSound("/audio/B.mp3");
+    const [playBb, exposedDataBb] = useSound("/audio/Bb.mp3");
+    const [playC, exposedDataC] = useSound("/audio/C.mp3");
+    const [playD, exposedDataD] = useSound("/audio/D.mp3");
+    const [playDb, exposedDataDb] = useSound("/audio/Db.mp3");
+    const [playE, exposedDataE] = useSound("/audio/E.mp3");
+    const [playEb, exposedDataEb] = useSound("/audio/Eb.mp3");
+    const [playF, exposedDataF] = useSound("/audio/F.mp3");
+    const [playG, exposedDataG] = useSound("/audio/G.mp3");
+    const [playGb, exposedDataGb] = useSound("/audio/Gb.mp3");
+
+    const keyMap: { [key: string]: string } = {
+        a: "C",
+        s: "D",
+        d: "E",
+        f: "F",
+        g: "G",
+        h: "A",
+        j: "B",
+        w: "Db",
+        e: "Eb",
+        t: "Gb",
+        y: "Ab",
+        u: "Bb",
+    };
 
     const playSounds = (key: string): void | false => {
         const mappedKeys: { [key: string]: PlayFunction } = {
@@ -47,7 +62,19 @@ export default function usePianoSounds() {
         playF,
         playG,
         playGb,
-        exposedData,
+        exposedDataC,
+        exposedDataGb,
+        exposedDataA,
+        exposedDataAb,
+        exposedDataB,
+        exposedDataBb,
+        exposedDataD,
+        exposedDataDb,
+        exposedDataE,
+        exposedDataEb,
+        exposedDataF,
+        exposedDataG,
         playSounds,
+        keyMap,
     };
 }

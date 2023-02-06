@@ -16,15 +16,41 @@ export default function PianoPlayer() {
         playF,
         playG,
         playGb,
-        exposedData,
+        exposedDataC,
+        exposedDataGb,
+        exposedDataA,
+        exposedDataAb,
+        exposedDataB,
+        exposedDataBb,
+        exposedDataD,
+        exposedDataDb,
+        exposedDataE,
+        exposedDataEb,
+        exposedDataF,
+        exposedDataG,
         playSounds,
+        keyMap,
     } = usePianoSounds();
 
     useEffect(() => {
-        window.addEventListener("keydown", handleKeyDown, true);
+        window.addEventListener("keydown", handleKeyDown, false);
+        window.addEventListener("keyup", handleKeyUp, false);
         return () =>
             window.removeEventListener("keydown", handleKeyDown, false);
-    }, [exposedData.sound]);
+    }, [
+        exposedDataC.sound,
+        exposedDataGb.sound,
+        exposedDataA.sound,
+        exposedDataAb.sound,
+        exposedDataB.sound,
+        exposedDataBb.sound,
+        exposedDataD.sound,
+        exposedDataDb.sound,
+        exposedDataE.sound,
+        exposedDataEb.sound,
+        exposedDataF.sound,
+        exposedDataG.sound,
+    ]);
 
     const keyRef = useRef<HTMLDivElement>(null);
 
@@ -57,9 +83,19 @@ export default function PianoPlayer() {
     };
 
     const handleKeyDown = ({ key }: KeyDownEvent) => {
-        const note = key.toUpperCase();
-        // eval(`play${note}`)();
+        const note = keyMap[key];
+        setKeyPressed((prevState) => {
+            return { ...prevState, [note]: styles.active };
+        });
         playSounds(key);
+    };
+
+    const handleKeyUp = ({ key }: KeyDownEvent) => {
+        const note = keyMap[key];
+        setKeyPressed((prevState) => {
+            return { ...prevState, [note]: "" };
+        });
+        eval(`exposedData${note}`).stop();
     };
 
     return (
