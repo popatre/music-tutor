@@ -1,28 +1,30 @@
 import React, { useRef, useState, useEffect, KeyboardEvent } from "react";
 import styles from "@/styles/Piano.module.css";
-import useSound from "use-sound";
-
-// import A from "/audio/A.mp3";
+import usePianoSounds from "@/hooks/usePianoSounds";
 
 export default function PianoPlayer() {
-    const [playA] = useSound("/audio/A.mp3");
-    const [playAb] = useSound("/audio/Ab.mp3");
-    const [playB] = useSound("/audio/B.mp3");
-    const [playBb] = useSound("/audio/Bb.mp3");
-    const [playC] = useSound("/audio/C.mp3");
-    const [playD] = useSound("/audio/D.mp3");
-    const [playDb] = useSound("/audio/Db.mp3");
-    const [playE] = useSound("/audio/E.mp3");
-    const [playEb] = useSound("/audio/Eb.mp3");
-    const [playF] = useSound("/audio/F.mp3");
-    const [playG] = useSound("/audio/G.mp3");
-    const [playGb] = useSound("/audio/Gb.mp3");
+    const {
+        playA,
+        playAb,
+        playB,
+        playBb,
+        playC,
+        playD,
+        playDb,
+        playE,
+        playEb,
+        playF,
+        playG,
+        playGb,
+        exposedData,
+        playSounds,
+    } = usePianoSounds();
 
     useEffect(() => {
-        window.addEventListener("keydown", handleKeyPress, false);
+        window.addEventListener("keydown", handleKeyDown, true);
         return () =>
-            window.removeEventListener("keydown", handleKeyPress, false);
-    }, []);
+            window.removeEventListener("keydown", handleKeyDown, false);
+    }, [exposedData.sound]);
 
     const keyRef = useRef<HTMLDivElement>(null);
 
@@ -54,9 +56,10 @@ export default function PianoPlayer() {
         }, 200);
     };
 
-    const handleKeyPress = ({ key }: KeyDownEvent) => {
+    const handleKeyDown = ({ key }: KeyDownEvent) => {
         const note = key.toUpperCase();
-        eval(`play${note}()`);
+        // eval(`play${note}`)();
+        playSounds(key);
     };
 
     return (
