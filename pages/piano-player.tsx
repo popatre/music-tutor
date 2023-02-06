@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/styles/Piano.module.css";
 import usePianoSounds from "@/hooks/usePianoSounds";
+import Slider from "@mui/material/Slider";
+import Stack from "@mui/material/Stack";
+import VolumeDown from "@mui/icons-material/VolumeDown";
+import VolumeUp from "@mui/icons-material/VolumeUp";
 
 export default function PianoPlayer() {
     const [keyPressed, setKeyPressed] = useState({
@@ -90,6 +94,17 @@ export default function PianoPlayer() {
 
     return (
         <main className={styles.container}>
+            <Stack
+                spacing={2}
+                direction="row"
+                sx={{ mb: 1 }}
+                alignItems="center"
+            >
+                <VolumeDown />
+                {/* <Slider aria-label="Volume" value={value} onChange={handleChange} /> */}
+                <Slider aria-label="Volume" value={volume * 100} />
+                <VolumeUp />
+            </Stack>
             <div className={styles.piano}>
                 <div
                     data-note="C"
