@@ -49,19 +49,26 @@ export default function usePianoSounds() {
         else return false;
     };
 
+    const playClicks = (key: string): void | false => {
+        const mappedKeys: { [key: string]: PlayFunction } = {
+            C: () => playC(),
+            D: () => playD(),
+            E: () => playE(),
+            F: () => playF(),
+            G: () => playG(),
+            A: () => playA(),
+            B: () => playB(),
+            Db: () => playDb(),
+            Eb: () => playEb(),
+            Gb: () => playGb(),
+            Ab: () => playAb(),
+            Bb: () => playBb(),
+        };
+        if (mappedKeys[key]) mappedKeys[key]();
+        else return false;
+    };
+
     return {
-        playA,
-        playAb,
-        playB,
-        playBb,
-        playC,
-        playD,
-        playDb,
-        playE,
-        playEb,
-        playF,
-        playG,
-        playGb,
         exposedDataC,
         exposedDataGb,
         exposedDataA,
@@ -76,5 +83,6 @@ export default function usePianoSounds() {
         exposedDataG,
         playSounds,
         keyMap,
+        playClicks,
     };
 }

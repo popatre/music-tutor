@@ -4,18 +4,6 @@ import usePianoSounds from "@/hooks/usePianoSounds";
 
 export default function PianoPlayer() {
     const {
-        playA,
-        playAb,
-        playB,
-        playBb,
-        playC,
-        playD,
-        playDb,
-        playE,
-        playEb,
-        playF,
-        playG,
-        playGb,
         exposedDataC,
         exposedDataGb,
         exposedDataA,
@@ -30,6 +18,7 @@ export default function PianoPlayer() {
         exposedDataG,
         playSounds,
         keyMap,
+        playClicks,
     } = usePianoSounds();
 
     useEffect(() => {
@@ -54,8 +43,6 @@ export default function PianoPlayer() {
         exposedDataG.sound,
     ]);
 
-    const keyRef = useRef<HTMLDivElement>(null);
-
     const [keyPressed, setKeyPressed] = useState({
         C: "",
         Db: "",
@@ -72,7 +59,8 @@ export default function PianoPlayer() {
     });
 
     const handleClick = (note: string) => {
-        eval(`play${note}()`);
+        // eval(`play${note}()`);
+        playClicks(note);
         setKeyPressed((prevState) => {
             return { ...prevState, [note]: styles.active };
         });
@@ -104,7 +92,6 @@ export default function PianoPlayer() {
         <main className={styles.container}>
             <div className={styles.piano}>
                 <div
-                    ref={keyRef}
                     data-note="C"
                     className={`${styles.key} ${styles.white} ${keyPressed.C}`}
                     onClick={() => handleClick("C")}
