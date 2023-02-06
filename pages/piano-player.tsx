@@ -1,8 +1,24 @@
-import React, { useRef, useState, useEffect, KeyboardEvent } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "@/styles/Piano.module.css";
 import usePianoSounds from "@/hooks/usePianoSounds";
 
 export default function PianoPlayer() {
+    const [keyPressed, setKeyPressed] = useState({
+        C: "",
+        Db: "",
+        D: "",
+        E: "",
+        Eb: "",
+        F: "",
+        G: "",
+        Gb: "",
+        A: "",
+        Ab: "",
+        Bb: "",
+        B: "",
+    });
+    const [volume, setVolume] = useState(0.8);
+
     const {
         exposedDataC,
         exposedDataGb,
@@ -19,7 +35,7 @@ export default function PianoPlayer() {
         playSounds,
         keyMap,
         playClicks,
-    } = usePianoSounds();
+    } = usePianoSounds(volume);
 
     useEffect(() => {
         window.addEventListener("keydown", handleKeyDown, false);
@@ -43,23 +59,7 @@ export default function PianoPlayer() {
         exposedDataG.sound,
     ]);
 
-    const [keyPressed, setKeyPressed] = useState({
-        C: "",
-        Db: "",
-        D: "",
-        E: "",
-        Eb: "",
-        F: "",
-        G: "",
-        Gb: "",
-        A: "",
-        Ab: "",
-        Bb: "",
-        B: "",
-    });
-
     const handleClick = (note: string) => {
-        // eval(`play${note}()`);
         playClicks(note);
         setKeyPressed((prevState) => {
             return { ...prevState, [note]: styles.active };

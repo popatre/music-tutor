@@ -1,19 +1,19 @@
 import useSound from "use-sound";
 import { PlayFunction } from "use-sound/dist/types";
 
-export default function usePianoSounds() {
-    const [playA, exposedDataA] = useSound("/audio/A.mp3");
-    const [playAb, exposedDataAb] = useSound("/audio/Ab.mp3");
-    const [playB, exposedDataB] = useSound("/audio/B.mp3");
-    const [playBb, exposedDataBb] = useSound("/audio/Bb.mp3");
-    const [playC, exposedDataC] = useSound("/audio/C.mp3");
-    const [playD, exposedDataD] = useSound("/audio/D.mp3");
-    const [playDb, exposedDataDb] = useSound("/audio/Db.mp3");
-    const [playE, exposedDataE] = useSound("/audio/E.mp3");
-    const [playEb, exposedDataEb] = useSound("/audio/Eb.mp3");
-    const [playF, exposedDataF] = useSound("/audio/F.mp3");
-    const [playG, exposedDataG] = useSound("/audio/G.mp3");
-    const [playGb, exposedDataGb] = useSound("/audio/Gb.mp3");
+export default function usePianoSounds(volume: number) {
+    const [playA, exposedDataA] = useSound("/audio/A.mp3", { volume });
+    const [playAb, exposedDataAb] = useSound("/audio/Ab.mp3", { volume });
+    const [playB, exposedDataB] = useSound("/audio/B.mp3", { volume });
+    const [playBb, exposedDataBb] = useSound("/audio/Bb.mp3", { volume });
+    const [playC, exposedDataC] = useSound("/audio/C.mp3", { volume });
+    const [playD, exposedDataD] = useSound("/audio/D.mp3", { volume });
+    const [playDb, exposedDataDb] = useSound("/audio/Db.mp3", { volume });
+    const [playE, exposedDataE] = useSound("/audio/E.mp3", { volume });
+    const [playEb, exposedDataEb] = useSound("/audio/Eb.mp3", { volume });
+    const [playF, exposedDataF] = useSound("/audio/F.mp3", { volume });
+    const [playG, exposedDataG] = useSound("/audio/G.mp3", { volume });
+    const [playGb, exposedDataGb] = useSound("/audio/Gb.mp3", { volume });
 
     const keyMap: { [key: string]: string } = {
         a: "C",
