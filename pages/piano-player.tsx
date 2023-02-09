@@ -21,7 +21,8 @@ export default function PianoPlayer() {
         Bb: "",
         B: "",
     });
-    const [volume, setVolume] = useState(0.8);
+
+    const [isValidKey, setIsValidKey] = useState<boolean>(true);
 
     const {
         exposedDataC,
@@ -39,7 +40,7 @@ export default function PianoPlayer() {
         playSounds,
         keyMap,
         playClicks,
-    } = usePianoSounds(volume);
+    } = usePianoSounds();
 
     useEffect(() => {
         window.addEventListener("keydown", handleKeyDown, false);
@@ -86,86 +87,79 @@ export default function PianoPlayer() {
 
     const handleKeyUp = ({ key }: KeyDownEvent) => {
         const note = keyMap[key];
-        setKeyPressed((prevState) => {
-            return { ...prevState, [note]: "" };
-        });
-        eval(`exposedData${note}`).stop();
+        if (note) {
+            setKeyPressed((prevState) => {
+                return { ...prevState, [note]: "" };
+            });
+            eval(`exposedData${note}`).stop();
+        }
     };
 
     return (
         <main className={styles.container}>
-            <Stack
-                spacing={2}
-                direction="row"
-                sx={{ mb: 1 }}
-                alignItems="center"
-            >
-                <VolumeDown />
-                {/* <Slider aria-label="Volume" value={value} onChange={handleChange} /> */}
-                <Slider aria-label="Volume" value={volume * 100} />
-                <VolumeUp />
-            </Stack>
-            <div className={styles.piano}>
-                <div
-                    data-note="C"
-                    className={`${styles.key} ${styles.white} ${keyPressed.C}`}
-                    onClick={() => handleClick("C")}
-                ></div>
-                <div
-                    onClick={() => handleClick("Db")}
-                    data-note="Db"
-                    className={`${styles.key} ${styles.black} ${keyPressed.Db}`}
-                ></div>
-                <div
-                    onClick={() => handleClick("D")}
-                    data-note="D"
-                    className={`${styles.key} ${styles.white} ${keyPressed.D}`}
-                ></div>
-                <div
-                    onClick={() => handleClick("Eb")}
-                    data-note="Eb"
-                    className={`${styles.key} ${styles.black} ${keyPressed.Eb}`}
-                ></div>
-                <div
-                    onClick={() => handleClick("E")}
-                    data-note="E"
-                    className={`${styles.key} ${styles.white} ${keyPressed.E}`}
-                ></div>
-                <div
-                    onClick={() => handleClick("F")}
-                    data-note="F"
-                    className={`${styles.key} ${styles.white} ${keyPressed.F}`}
-                ></div>
-                <div
-                    onClick={() => handleClick("Gb")}
-                    data-note="Gb"
-                    className={`${styles.key} ${styles.black} ${keyPressed.Gb}`}
-                ></div>
-                <div
-                    onClick={() => handleClick("G")}
-                    data-note="G"
-                    className={`${styles.key} ${styles.white} ${keyPressed.G}`}
-                ></div>
-                <div
-                    onClick={() => handleClick("Ab")}
-                    data-note="Ab"
-                    className={`${styles.key} ${styles.black} ${keyPressed.Ab}`}
-                ></div>
-                <div
-                    onClick={() => handleClick("A")}
-                    data-note="A"
-                    className={`${styles.key} ${styles.white} ${keyPressed.A}`}
-                ></div>
-                <div
-                    onClick={() => handleClick("Bb")}
-                    data-note="Bb"
-                    className={`${styles.key} ${styles.black} ${keyPressed.Bb}`}
-                ></div>
-                <div
-                    onClick={() => handleClick("B")}
-                    data-note="B"
-                    className={`${styles.key} ${styles.white} ${keyPressed.B}`}
-                ></div>
+            <div className={styles.piano__container}>
+                <div className={styles.piano}>
+                    <div
+                        data-note="C"
+                        className={`${styles.key} ${styles.white} ${keyPressed.C}`}
+                        onClick={() => handleClick("C")}
+                    ></div>
+                    <div
+                        onClick={() => handleClick("Db")}
+                        data-note="Db"
+                        className={`${styles.key} ${styles.black} ${keyPressed.Db}`}
+                    ></div>
+                    <div
+                        onClick={() => handleClick("D")}
+                        data-note="D"
+                        className={`${styles.key} ${styles.white} ${keyPressed.D}`}
+                    ></div>
+                    <div
+                        onClick={() => handleClick("Eb")}
+                        data-note="Eb"
+                        className={`${styles.key} ${styles.black} ${keyPressed.Eb}`}
+                    ></div>
+                    <div
+                        onClick={() => handleClick("E")}
+                        data-note="E"
+                        className={`${styles.key} ${styles.white} ${keyPressed.E}`}
+                    ></div>
+                    <div
+                        onClick={() => handleClick("F")}
+                        data-note="F"
+                        className={`${styles.key} ${styles.white} ${keyPressed.F}`}
+                    ></div>
+                    <div
+                        onClick={() => handleClick("Gb")}
+                        data-note="Gb"
+                        className={`${styles.key} ${styles.black} ${keyPressed.Gb}`}
+                    ></div>
+                    <div
+                        onClick={() => handleClick("G")}
+                        data-note="G"
+                        className={`${styles.key} ${styles.white} ${keyPressed.G}`}
+                    ></div>
+                    <div
+                        onClick={() => handleClick("Ab")}
+                        data-note="Ab"
+                        className={`${styles.key} ${styles.black} ${keyPressed.Ab}`}
+                    ></div>
+                    <div
+                        onClick={() => handleClick("A")}
+                        data-note="A"
+                        className={`${styles.key} ${styles.white} ${keyPressed.A}`}
+                    ></div>
+                    <div
+                        onClick={() => handleClick("Bb")}
+                        data-note="Bb"
+                        className={`${styles.key} ${styles.black} ${keyPressed.Bb}`}
+                    ></div>
+                    <div
+                        onClick={() => handleClick("B")}
+                        data-note="B"
+                        className={`${styles.key} ${styles.white} ${keyPressed.B}`}
+                    ></div>
+                </div>
             </div>
         </main>
     );
