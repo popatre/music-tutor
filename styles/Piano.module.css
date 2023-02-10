@@ -42,6 +42,13 @@
 
 .white.active {
     background-color: #ccc;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.75);
+    clip-path: inset(0px -15px 0px -15px);
+
+    /* position and left properties required to bring element out from edge of parent
+    so that shadow can be seen; margin-left would also achieve the same thing */
+    position: relative;
+    left: -1px;
 }
 
 .black {
@@ -54,6 +61,13 @@
 
 .black.active {
     background-color: #333;
+    box-shadow: 0 0 10px 5px rgba(141, 140, 140, 0.75);
+    clip-path: inset(0px -15px 0px -15px);
+
+    /* position and left properties required to bring element out from edge of parent
+    so that shadow can be seen; margin-left would also achieve the same thing */
+    position: relative;
+    left: -1px;
 }
 
 .volume__bar {
