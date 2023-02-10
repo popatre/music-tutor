@@ -14,6 +14,20 @@
     display: flex;
 }
 
+.piano div > p {
+    font-size: 1.8rem;
+}
+
+.piano div > p {
+    font-size: 1.8rem;
+}
+
+.piano div {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
 .key {
     height: calc(var(--width) * 4);
     width: var(--width);
@@ -51,4 +65,17 @@
     display: flex;
     width: 20%;
     margin-block: 1em;
+}
+
+.blackLetters {
+    color: white;
+}
+.blackLetters,
+.whiteLetters {
+    opacity: 0;
+}
+
+.blackLetters.help,
+.whiteLetters.help {
+    opacity: 1;
 }
