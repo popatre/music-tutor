@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Dispatch } from "react";
 
 type Props = {
     score: number;
-    setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
-    setTimer: React.Dispatch<React.SetStateAction<number>>;
-    setScore: React.Dispatch<React.SetStateAction<number>>;
+    setIsGameOver: Dispatch<React.SetStateAction<boolean>>;
+    setTimer: Dispatch<React.SetStateAction<number>>;
+    setScore: Dispatch<React.SetStateAction<number>>;
 };
 
 function GameOverScreen({ score, setIsGameOver, setTimer, setScore }: Props) {

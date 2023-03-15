@@ -51,6 +51,10 @@ function StaveGame({ noteImgUrls }: Props) {
                     <button name="d" onClick={() => checkAnswer("d")}>
                         D
                     </button>
+                    <button onClick={() => checkAnswer("a")}>A</button>
+                    <button onClick={() => checkAnswer("b")}>B</button>
+                    <button onClick={() => checkAnswer("c")}>C</button>
+                    <button onClick={() => checkAnswer("d")}>D</button>
                     <button onClick={() => checkAnswer("e")}>E</button>
                     <button onClick={() => checkAnswer("f")}>F</button>
                     <button onClick={() => checkAnswer("g")}>G</button>
