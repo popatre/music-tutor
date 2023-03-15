@@ -25,7 +25,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Music Theory Teach</title>
+                <title>Music Theory</title>
                 <meta name="description" content="Music T" />
                 <meta
                     name="viewport"
@@ -34,17 +34,22 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.main}>
-                <h1>Music Theory Challenge</h1>
-
-                <button onClick={() => handleClick("/stave-challenge/treble")}>
-                    Treble Clef Notes Quiz
-                </button>
-                <button onClick={() => handleClick("/stave-challenge/bass")}>
-                    Bass Clef Notes Quiz
-                </button>
-                <button onClick={() => handleClick("/piano-player")}>
-                    Piano Player
-                </button>
+                <h1 className={styles.title}>Music Theory </h1>
+                <div className={styles.buttons}>
+                    <button
+                        onClick={() => handleClick("/stave-challenge/treble")}
+                    >
+                        Treble Clef Notes Quiz
+                    </button>
+                    <button
+                        onClick={() => handleClick("/stave-challenge/bass")}
+                    >
+                        Bass Clef Notes Quiz
+                    </button>
+                    <button onClick={() => handleClick("/piano-player")}>
+                        Piano Player
+                    </button>
+                </div>
             </main>
         </>
     );
