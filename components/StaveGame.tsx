@@ -48,9 +48,6 @@ function StaveGame({ noteImgUrls }: Props) {
             {!gameStarted && <button onClick={startTimer}>Start Timer</button>}
             {gameStarted && (
                 <div>
-                    <button name="d" onClick={() => checkAnswer("d")}>
-                        D
-                    </button>
                     <button onClick={() => checkAnswer("a")}>A</button>
                     <button onClick={() => checkAnswer("b")}>B</button>
                     <button onClick={() => checkAnswer("c")}>C</button>

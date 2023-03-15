@@ -15,9 +15,15 @@ export const noteImgUrls: { [key: string]: string } = {
 };
 
 export const bassClefNotes: { [key: string]: string } = {
-    f: "https://www.musictheoryacademy.com/wp-content/uploads/2020/06/Bass-Clef-Notes-Quiz-F.jpg",
-    d: "https://www.musictheoryacademy.com/wp-content/uploads/2020/06/Bass-Clef-Notes-Quiz-D.jpg",
-    e: "https://www.musictheoryacademy.com/wp-content/uploads/2020/06/Bass-Clef-Notes-Quiz-E.jpg",
-    F: "https://rgsmithmusic.com/horn/bass_c3.gif",
-    g: "https://www.musictheoryacademy.com/wp-content/uploads/2020/06/Bass-Clef-Notes-Quiz-G.jpg",
+    f: "https://res.cloudinary.com/da5ahdojl/image/upload/v1678898432/bass-clef/Screenshot_2023-03-15_at_16.38.51_nvhl7p.png",
+    d: "https://res.cloudinary.com/da5ahdojl/image/upload/v1678898431/bass-clef/Screenshot_2023-03-15_at_16.39.16_eiswuo.png",
+    e: "https://res.cloudinary.com/da5ahdojl/image/upload/v1678898431/bass-clef/Screenshot_2023-03-15_at_16.39.06_yj6dw4.png",
+    g: "https://res.cloudinary.com/da5ahdojl/image/upload/v1678898432/bass-clef/Screenshot_2023-03-15_at_16.38.42_wn6exh.png",
+    a: "https://res.cloudinary.com/da5ahdojl/image/upload/v1678898432/bass-clef/Screenshot_2023-03-15_at_16.38.29_pbhxmu.png",
+    c: "https://res.cloudinary.com/da5ahdojl/image/upload/v1678898432/bass-clef/Screenshot_2023-03-15_at_16.38.11_skdp4u.png",
+    b: "https://res.cloudinary.com/da5ahdojl/image/upload/v1678898432/bass-clef/Screenshot_2023-03-15_at_16.38.22_zfqvkm.png",
+    C: "https://res.cloudinary.com/da5ahdojl/image/upload/v1678898431/bass-clef/Screenshot_2023-03-15_at_16.39.26_mqftwl.png",
+    A: "https://res.cloudinary.com/da5ahdojl/image/upload/v1678898431/bass-clef/Screenshot_2023-03-15_at_16.39.49_zqrbty.png",
+    G: "https://res.cloudinary.com/da5ahdojl/image/upload/v1678898431/bass-clef/Screenshot_2023-03-15_at_16.39.59_ihultt.png",
+    B: "https://res.cloudinary.com/da5ahdojl/image/upload/v1678898431/bass-clef/Screenshot_2023-03-15_at_16.39.36_oezbl1.png",
 };
