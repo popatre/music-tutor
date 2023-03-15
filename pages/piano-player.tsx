@@ -5,8 +5,10 @@ import Slider from "@mui/material/Slider";
 import Stack from "@mui/material/Stack";
 import VolumeDown from "@mui/icons-material/VolumeDown";
 import VolumeUp from "@mui/icons-material/VolumeUp";
+import { useMediaQuery } from "react-responsive";
 
 export default function PianoPlayer() {
+    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
     const [keyPressed, setKeyPressed] = useState({
         C: "",
         Db: "",
@@ -102,6 +104,14 @@ export default function PianoPlayer() {
             setShowHelp("");
         }
     };
+
+    if (isTabletOrMobile)
+        return (
+            <main>
+                <h2>Looks like you're using a tablet or mobile</h2>
+                <p>This site is best used on a computer</p>
+            </main>
+        );
 
     return (
         <main className={styles.container}>
