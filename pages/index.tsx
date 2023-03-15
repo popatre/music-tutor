@@ -41,6 +41,7 @@ export default function Home() {
                     >
                         Treble Clef Notes Quiz
                     </button>
+
                     <button
                         onClick={() => handleClick("/stave-challenge/bass")}
                     >

@@ -7,7 +7,7 @@
 }
 
 .container {
-    background-color: #143f6b;
+    background-color: #59bdf3;
 }
 
 .piano {
@@ -92,4 +92,18 @@
 .blackLetters.help,
 .whiteLetters.help {
     opacity: 1;
+}
+
+.showHelp {
+    font-size: 1.2rem;
+    border-radius: 0% 0% 50px 0%;
+    padding: 1.5em;
+    background-color: white;
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+.showHelp:hover {
+    opacity: 1;
+    cursor: pointer;
 }

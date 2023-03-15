@@ -115,7 +115,7 @@ export default function PianoPlayer() {
 
     return (
         <main className={styles.container}>
-            <button onClick={handleHelp}>
+            <button className={styles.showHelp} onClick={handleHelp}>
                 {!showHelp ? "Show keys" : "Hide keys"}
             </button>
             <div className={styles.piano__container}>
