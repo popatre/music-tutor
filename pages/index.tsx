@@ -1,16 +1,27 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
+import { useMediaQuery } from "react-responsive";
 import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
     const router = useRouter();
 
     const handleClick = (href: string): void => {
         router.push(href);
     };
+
+    if (isTabletOrMobile)
+        return (
+            <main>
+                <h2>Looks like you're using a tablet or mobile</h2>
+                <p>This site is best used on a computer</p>
+            </main>
+        );
     return (
         <>
             <Head>
@@ -24,6 +35,7 @@ export default function Home() {
             </Head>
             <main className={styles.main}>
                 <h1>Music Theory Challenge</h1>
+
                 <button onClick={() => handleClick("/stave-challenge/treble")}>
                     Treble Clef Notes Quiz
                 </button>
