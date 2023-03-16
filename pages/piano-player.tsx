@@ -26,6 +26,8 @@ export default function PianoPlayer({ chord }: Props) {
         Ab: "",
         Bb: "",
         B: "",
+        FSharp: "",
+        GSharp: "",
     });
 
     const [showHelp, setShowHelp] = useState<string>("");
@@ -91,10 +93,16 @@ export default function PianoPlayer({ chord }: Props) {
                 Ab: "",
                 Bb: "",
                 B: "",
+                FSharp: "",
+                GSharp: "",
             };
         });
 
         notes.forEach((note) => {
+            if (note.endsWith("#")) {
+                note = note.replace(/#/, "Sharp");
+            }
+
             setKeyPressed((prevState) => {
                 return { ...prevState, [note]: styles.active };
             });
@@ -214,7 +222,7 @@ export default function PianoPlayer({ chord }: Props) {
                     <div
                         onClick={() => handleClick("Gb")}
                         data-note="Gb"
-                        className={`${styles.key} ${styles.black} ${keyPressed.Gb}`}
+                        className={`${styles.key} ${styles.black} ${keyPressed.Gb} ${keyPressed.FSharp} `}
                     >
                         <p className={`${styles.blackLetters} ${showHelp} `}>
                             t
@@ -232,7 +240,7 @@ export default function PianoPlayer({ chord }: Props) {
                     <div
                         onClick={() => handleClick("Ab")}
                         data-note="Ab"
-                        className={`${styles.key} ${styles.black} ${keyPressed.Ab}`}
+                        className={`${styles.key} ${styles.black} ${keyPressed.Ab} ${keyPressed.GSharp}`}
                     >
                         <p className={`${styles.blackLetters} ${showHelp} `}>
                             y
