@@ -7,7 +7,11 @@ import VolumeDown from "@mui/icons-material/VolumeDown";
 import VolumeUp from "@mui/icons-material/VolumeUp";
 import { useMediaQuery } from "react-responsive";
 
-export default function PianoPlayer() {
+type Props = {
+    chord: string[];
+};
+
+export default function PianoPlayer({ chord }: Props) {
     const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
     const [keyPressed, setKeyPressed] = useState({
         C: "",
@@ -45,8 +49,11 @@ export default function PianoPlayer() {
     } = usePianoSounds();
 
     useEffect(() => {
+        handleChords(chord);
+
         window.addEventListener("keydown", handleKeyDown, false);
         window.addEventListener("keyup", handleKeyUp, false);
+
         return () => {
             window.removeEventListener("keydown", handleKeyDown, false);
             window.removeEventListener("keyup", handleKeyUp, false);
@@ -64,13 +71,43 @@ export default function PianoPlayer() {
         exposedDataEb.sound,
         exposedDataF.sound,
         exposedDataG.sound,
+        chord,
     ]);
 
+    const handleChords = (notes: string[]) => {
+        console.log(notes);
+        //reset key
+        setKeyPressed((prevState) => {
+            return {
+                C: "",
+                Db: "",
+                D: "",
+                E: "",
+                Eb: "",
+                F: "",
+                G: "",
+                Gb: "",
+                A: "",
+                Ab: "",
+                Bb: "",
+                B: "",
+            };
+        });
+
+        notes.forEach((note) => {
+            setKeyPressed((prevState) => {
+                return { ...prevState, [note]: styles.active };
+            });
+        });
+    };
+
     const handleClick = (note: string) => {
+        if (chord) return;
         playClicks(note);
         setKeyPressed((prevState) => {
             return { ...prevState, [note]: styles.active };
         });
+
         setTimeout(() => {
             setKeyPressed((prevState) => {
                 return { ...prevState, [note]: "" };
