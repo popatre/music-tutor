@@ -50,6 +50,9 @@ export default function Home() {
                     <button onClick={() => handleClick("/piano-player")}>
                         Piano Player
                     </button>
+                    <button onClick={() => handleClick("/chords")}>
+                        Piano Chord Finder
+                    </button>
                 </div>
             </main>
         </>

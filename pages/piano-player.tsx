@@ -28,6 +28,9 @@ export default function PianoPlayer({ chord }: Props) {
         B: "",
         FSharp: "",
         GSharp: "",
+        CSharp: "",
+        DSharp: "",
+        ASharp: "",
     });
 
     const [showHelp, setShowHelp] = useState<string>("");
@@ -95,6 +98,9 @@ export default function PianoPlayer({ chord }: Props) {
                 B: "",
                 FSharp: "",
                 GSharp: "",
+                CSharp: "",
+                DSharp: "",
+                ASharp: "",
             };
         });
 
@@ -177,7 +183,7 @@ export default function PianoPlayer({ chord }: Props) {
                     <div
                         onClick={() => handleClick("Db")}
                         data-note="Db"
-                        className={`${styles.key} ${styles.black} ${keyPressed.Db}`}
+                        className={`${styles.key} ${styles.black} ${keyPressed.Db} ${keyPressed.CSharp}`}
                     >
                         <p className={`${styles.blackLetters} ${showHelp} `}>
                             w
@@ -195,7 +201,7 @@ export default function PianoPlayer({ chord }: Props) {
                     <div
                         onClick={() => handleClick("Eb")}
                         data-note="Eb"
-                        className={`${styles.key} ${styles.black} ${keyPressed.Eb}`}
+                        className={`${styles.key} ${styles.black} ${keyPressed.Eb} ${keyPressed.DSharp}`}
                     >
                         <p className={`${styles.blackLetters} ${showHelp} `}>
                             e
@@ -258,7 +264,7 @@ export default function PianoPlayer({ chord }: Props) {
                     <div
                         onClick={() => handleClick("Bb")}
                         data-note="Bb"
-                        className={`${styles.key} ${styles.black} ${keyPressed.Bb}`}
+                        className={`${styles.key} ${styles.black} ${keyPressed.Bb} ${keyPressed.ASharp}`}
                     >
                         <p className={`${styles.blackLetters} ${showHelp} `}>
                             u
