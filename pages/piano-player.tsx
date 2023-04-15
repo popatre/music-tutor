@@ -3,6 +3,7 @@ import styles from "@/styles/Piano.module.css";
 import usePianoSounds from "@/hooks/usePianoSounds";
 
 import { useMediaQuery } from "react-responsive";
+import MobileMessage from "@/components/MobileMessage";
 
 type Props = {
     chord: string[];
@@ -154,13 +155,7 @@ export default function PianoPlayer({ chord }: Props) {
         }
     };
 
-    if (isTabletOrMobile)
-        return (
-            <main>
-                <h2>Looks like you're using a tablet or mobile</h2>
-                <p>This site is best used on a computer</p>
-            </main>
-        );
+    if (isTabletOrMobile) return <MobileMessage />;
 
     return (
         <main className={styles.container}>
