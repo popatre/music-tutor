@@ -74,3 +74,52 @@
     box-shadow: 0 0 20px #6fc5ff50;
     cursor: pointer;
 }
+
+.btn__container {
+    padding-bottom: 3em;
+}
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+    .btn__answer {
+        padding: 1.4em 2.5em;
+        border: 0;
+
+        border-radius: 100px;
+        background-color: #ffffff;
+        color: #2ba8fb;
+        font-weight: Bold;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        margin-top: 1em;
+        margin-inline: 10px;
+    }
+
+    .finalScore {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 2em 3em;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+}
+
+/* laptop */
+@media only screen and (min-width: 1024px) {
+    .title {
+        font-size: 3rem;
+        margin-top: -1em;
+    }
+    .stave__img {
+        width: 30%;
+        max-width: 700px;
+        margin-block: 1em;
+    }
+    .gameboard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

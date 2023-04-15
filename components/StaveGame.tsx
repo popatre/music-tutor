@@ -42,7 +42,7 @@ function StaveGame({ noteImgUrls }: Props) {
         }
     };
     return !isGameOver ? (
-        <div>
+        <div className={styles.gameboard}>
             <h2 className={styles.score}>Score: {score}</h2>
             <h2 className={styles.score}>Time Remaining: {timer}</h2>
             <img
@@ -56,7 +56,7 @@ function StaveGame({ noteImgUrls }: Props) {
                 </button>
             )}
             {gameStarted && (
-                <div>
+                <div className={styles.btn__container}>
                     <button
                         className={styles.btn__answer}
                         onClick={() => checkAnswer("a")}
