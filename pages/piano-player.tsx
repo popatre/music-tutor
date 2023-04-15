@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/styles/Piano.module.css";
 import usePianoSounds from "@/hooks/usePianoSounds";
-import Slider from "@mui/material/Slider";
-import Stack from "@mui/material/Stack";
-import VolumeDown from "@mui/icons-material/VolumeDown";
-import VolumeUp from "@mui/icons-material/VolumeUp";
+
 import { useMediaQuery } from "react-responsive";
 
 type Props = {
@@ -54,7 +51,9 @@ export default function PianoPlayer({ chord }: Props) {
     } = usePianoSounds();
 
     useEffect(() => {
-        handleChords(chord);
+        if (chord) {
+            handleChords(chord);
+        }
 
         window.addEventListener("keydown", handleKeyDown, false);
         window.addEventListener("keyup", handleKeyUp, false);
@@ -80,7 +79,6 @@ export default function PianoPlayer({ chord }: Props) {
     ]);
 
     const handleChords = (notes: string[]) => {
-        console.log(notes);
         //reset key
         setKeyPressed((prevState) => {
             return {
