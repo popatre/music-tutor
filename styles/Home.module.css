@@ -17,9 +17,10 @@
 
 .buttons {
     padding-top: 7em;
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
 }
 
 .buttons > button {

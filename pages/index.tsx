@@ -3,6 +3,7 @@ import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import { useMediaQuery } from "react-responsive";
 import { useRouter } from "next/router";
+import MobileMessage from "@/components/MobileMessage";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,13 +16,7 @@ export default function Home() {
         router.push(href);
     };
 
-    if (isTabletOrMobile)
-        return (
-            <main>
-                <h2>Looks like you're using a tablet or mobile</h2>
-                <p>This site is best used on a computer</p>
-            </main>
-        );
+    if (isTabletOrMobile) return <MobileMessage />;
     return (
         <>
             <Head>
