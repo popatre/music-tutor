@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import GameOverScreen from "./GameOverScreen";
+import styles from "@/styles/Stave.module.css";
 
 type Props = {
     noteImgUrls: { [key: string]: string };
@@ -42,19 +43,62 @@ function StaveGame({ noteImgUrls }: Props) {
     };
     return !isGameOver ? (
         <div>
-            <h2>Score: {score}</h2>
-            <h2>Time Remaining:{timer}</h2>
-            <img src={noteImgUrls[randomNote]} alt="Note on a stave" />
-            {!gameStarted && <button onClick={startTimer}>Start Timer</button>}
+            <h2 className={styles.score}>Score: {score}</h2>
+            <h2 className={styles.score}>Time Remaining: {timer}</h2>
+            <img
+                className={styles.stave__img}
+                src={noteImgUrls[randomNote]}
+                alt="Note on a stave"
+            />
+            {!gameStarted && (
+                <button className={styles.btn} onClick={startTimer}>
+                    Start Game
+                </button>
+            )}
             {gameStarted && (
                 <div>
-                    <button onClick={() => checkAnswer("a")}>A</button>
-                    <button onClick={() => checkAnswer("b")}>B</button>
-                    <button onClick={() => checkAnswer("c")}>C</button>
-                    <button onClick={() => checkAnswer("d")}>D</button>
-                    <button onClick={() => checkAnswer("e")}>E</button>
-                    <button onClick={() => checkAnswer("f")}>F</button>
-                    <button onClick={() => checkAnswer("g")}>G</button>
+                    <button
+                        className={styles.btn__answer}
+                        onClick={() => checkAnswer("a")}
+                    >
+                        A
+                    </button>
+                    <button
+                        className={styles.btn__answer}
+                        onClick={() => checkAnswer("b")}
+                    >
+                        B
+                    </button>
+                    <button
+                        className={styles.btn__answer}
+                        onClick={() => checkAnswer("c")}
+                    >
+                        C
+                    </button>
+                    <button
+                        className={styles.btn__answer}
+                        onClick={() => checkAnswer("d")}
+                    >
+                        D
+                    </button>
+                    <button
+                        className={styles.btn__answer}
+                        onClick={() => checkAnswer("e")}
+                    >
+                        E
+                    </button>
+                    <button
+                        className={styles.btn__answer}
+                        onClick={() => checkAnswer("f")}
+                    >
+                        F
+                    </button>
+                    <button
+                        className={styles.btn__answer}
+                        onClick={() => checkAnswer("g")}
+                    >
+                        G
+                    </button>
                 </div>
             )}
         </div>

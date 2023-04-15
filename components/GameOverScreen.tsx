@@ -1,4 +1,5 @@
 import React, { Dispatch } from "react";
+import styles from "@/styles/Stave.module.css";
 
 type Props = {
     score: number;
@@ -15,9 +16,11 @@ function GameOverScreen({ score, setIsGameOver, setTimer, setScore }: Props) {
     };
     return (
         <div>
-            <h1>Time's Up!</h1>
-            <p>Your score was: {score}</p>
-            <button onClick={resetGame}>Play Again?</button>
+            <h2 className={styles.title}>Time's Up!</h2>
+            <p className={styles.finalScore}>Your score was: {score}</p>
+            <button className={styles.btn} onClick={resetGame}>
+                Play Again?
+            </button>
         </div>
     );
 }

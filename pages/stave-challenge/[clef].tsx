@@ -9,7 +9,7 @@ function staveChallenge() {
     const { clef } = router.query;
     return (
         <div className={styles.main}>
-            <h1>{clef} clef - Notes on a Stave</h1>
+            <h1 className={styles.title}>Notes on a Stave - {clef} clef </h1>
             {clef === "treble" && <StaveGame noteImgUrls={noteImgUrls} />}
             {clef === "bass" && <StaveGame noteImgUrls={bassClefNotes} />}
         </div>
