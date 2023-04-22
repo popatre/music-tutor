@@ -8,7 +8,7 @@ import MobileMessage from "@/components/MobileMessage";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
 
     const router = useRouter();
 

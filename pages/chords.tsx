@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Chord } from "tonal";
+import styles from "../styles/Chords.module.css";
 import PianoPlayer from "./piano-player";
 function chords() {
     const [chordNotes, setChordNotes] = useState<string[]>([]);
@@ -19,27 +20,97 @@ function chords() {
             setChordNotes(result);
         }
     };
-    console.log(chordNotes);
 
     return (
-        <div>
-            chords
+        <main>
             <PianoPlayer chord={chordNotes} />
-            <button onClick={() => handleClick("C")}>C</button>
-            <button onClick={() => handleClick("Cm")}>Cm</button>
-            <button onClick={() => handleClick("D")}>D</button>
-            <button onClick={() => handleClick("Dm")}>Dm</button>
-            <button onClick={() => handleClick("E")}>E</button>
-            <button onClick={() => handleClick("Em")}>Em</button>
-            <button onClick={() => handleClick("F")}>F</button>
-            <button onClick={() => handleClick("Fm")}>Fm</button>
-            <button onClick={() => handleClick("G")}>G</button>
-            <button onClick={() => handleClick("Gm")}>Gm</button>
-            <button onClick={() => handleClick("A")}>A</button>
-            <button onClick={() => handleClick("Am")}>Am</button>
-            <button onClick={() => handleClick("B")}>B</button>
-            <button onClick={() => handleClick("Bm")}>Bm</button>
-        </div>
+            <div className={styles.btnBar}>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("C")}
+                >
+                    C
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("Cm")}
+                >
+                    Cm
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("D")}
+                >
+                    D
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("Dm")}
+                >
+                    Dm
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("E")}
+                >
+                    E
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("Em")}
+                >
+                    Em
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("F")}
+                >
+                    F
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("Fm")}
+                >
+                    Fm
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("G")}
+                >
+                    G
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("Gm")}
+                >
+                    Gm
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("A")}
+                >
+                    A
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("Am")}
+                >
+                    Am
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("B")}
+                >
+                    B
+                </button>
+                <button
+                    className={styles.btn__answer}
+                    onClick={() => handleClick("Bm")}
+                >
+                    Bm
+                </button>
+            </div>
+        </main>
     );
 }
 

@@ -1,0 +1,27 @@
+.btnBar {
+    width: 50%;
+    max-width: 800px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.btn__answer {
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #ffffff;
+    color: #2ba8fb;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    margin-top: 1em;
+    margin-inline: 5px;
+}
+
+.btn__answer:hover {
+    background-color: #e0d6d6;
+    box-shadow: 0 0 20px #6fc5ff50;
+    cursor: pointer;
+}

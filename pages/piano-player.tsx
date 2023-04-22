@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function PianoPlayer({ chord }: Props) {
-    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
     const [keyPressed, setKeyPressed] = useState({
         C: "",
         Db: "",

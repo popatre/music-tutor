@@ -6,6 +6,8 @@
     /* padding: 6rem; */
     min-height: 100vh;
     background-color: #59bdf3;
+    width: 90%;
+    margin-inline: auto;
 }
 
 .title {
