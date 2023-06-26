@@ -48,6 +48,13 @@ export default function Home() {
                     <button onClick={() => handleClick("/chords")}>
                         Piano Chord Finder
                     </button>
+                    <button
+                        onClick={() =>
+                            handleClick("/intervals/interval-trainer")
+                        }
+                    >
+                        Interval Trainer
+                    </button>
                 </div>
             </main>
         </>
