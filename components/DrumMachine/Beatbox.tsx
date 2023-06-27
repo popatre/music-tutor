@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import * as Tone from "tone";
 
 import styles from "./DrumMachine.module.scss";
+import Controls from "./Controls";
 
 const NOTE = "C2";
 
@@ -16,8 +17,6 @@ type Props = {
 };
 
 export default function DrumMachine({ samples, numOfSteps = 16 }: Props) {
-    const [isPlaying, setIsPlaying] = useState(false);
-
     const tracksRef = useRef<Track[]>([]);
     const stepsRef = useRef<HTMLInputElement[][]>([[]]);
     const lampsRef = useRef<HTMLInputElement[]>([]);
@@ -25,25 +24,6 @@ export default function DrumMachine({ samples, numOfSteps = 16 }: Props) {
 
     const trackIds = [...Array(samples.length).keys()] as const;
     const stepIds = [...Array(numOfSteps).keys()] as const;
-
-    const handleStartClick = async () => {
-        if (Tone.Transport.state === "started") {
-            Tone.Transport.pause();
-            setIsPlaying(false);
-        } else {
-            await Tone.start();
-            Tone.Transport.start();
-            setIsPlaying(true);
-        }
-    };
-
-    const handleBpmChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        Tone.Transport.bpm.value = Number(e.target.value);
-    };
-
-    const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        Tone.Destination.volume.value = Tone.gainToDb(Number(e.target.value));
-    };
 
     useEffect(() => {
         tracksRef.current = samples.map((sample, i) => ({
@@ -133,33 +113,8 @@ export default function DrumMachine({ samples, numOfSteps = 16 }: Props) {
                     ))}
                 </div>
             </div>
-            <div className={styles.controls}>
-                <button onClick={handleStartClick} className={styles.button}>
-                    {isPlaying ? "Pause" : "Start"}
-                </button>
-                <label className={styles.fader}>
-                    <span>BPM</span>
-                    <input
-                        type="range"
-                        min={30}
-                        max={300}
-                        step={1}
-                        onChange={handleBpmChange}
-                        defaultValue={120}
-                    />
-                </label>
-                <label className={styles.fader}>
-                    <span>Volume</span>
-                    <input
-                        type="range"
-                        min={0}
-                        max={1}
-                        step={0.01}
-                        onChange={handleVolumeChange}
-                        defaultValue={1}
-                    />
-                </label>
-            </div>
+
+            <Controls />
         </div>
     );
 }
