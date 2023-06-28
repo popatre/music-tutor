@@ -1,4 +1,5 @@
-$cellHeight: 40px;
+$cellHeight: 70px;
+// $cellHeight: 40px;
 $rowGap: 8px;
 
 @mixin invisibleInput {
@@ -30,6 +31,8 @@ $rowGap: 8px;
     display: flex;
     flex-direction: column;
     row-gap: $rowGap;
+    color: white;
+    font-family: "Monoton", cursive;
 
     & > * {
         height: $cellHeight;
@@ -59,8 +62,9 @@ $rowGap: 8px;
         width: 14px;
         height: 14px;
         border-radius: 8px;
-        background-color: #ccc;
-        margin: 0 8px;
+        background-color: #f5f2f2;
+        //margin: 0 8px;
+        margin: 0 28px;
     }
 }
 
@@ -97,10 +101,12 @@ $rowGap: 8px;
     }
 
     &__content {
-        width: 30px;
+        // width: 30px;
+        min-width: 30px;
+        width: 70px;
         height: $cellHeight;
         border-radius: 3px;
-        background-color: #ccc;
+        background-color: #f3f1f1;
     }
 }
 
@@ -115,6 +121,8 @@ $rowGap: 8px;
     align-items: center;
     column-gap: 16px;
     grid-column: 2;
+    font-family: "Monoton", cursive;
+    color: white;
 }
 
 .button {

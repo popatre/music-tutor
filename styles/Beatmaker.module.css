@@ -1,0 +1,15 @@
+.container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    color: white;
+    font-size: 4.3rem;
+    font-family: "Monoton", cursive;
+    text-shadow: 2px 3px 4px rgb(0, 0, 0);
+    padding-bottom: 1em;
+}

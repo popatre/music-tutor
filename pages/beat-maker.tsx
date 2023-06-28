@@ -1,9 +1,11 @@
 import React from "react";
 import Beatbox from "../components/DrumMachine/Beatbox";
+import styles from "../styles/Beatmaker.module.css";
+
 export default function beatbox() {
     return (
-        <div>
-            Drum Machine
+        <div className={styles.container}>
+            <h1 className={styles.title}>Beat Maker</h1>
             <Beatbox
                 samples={[
                     { url: "/audio/hat-closed.wav", name: "Hi hat" },
