@@ -86,6 +86,7 @@ export default function DrumMachine({ samples, numOfSteps = 16 }: Props) {
                         <div key={trackId} className={styles.row}>
                             {stepIds.map((stepId) => {
                                 const id = trackId + "-" + stepId;
+
                                 return (
                                     <label className={styles.cell}>
                                         <input
@@ -106,7 +107,11 @@ export default function DrumMachine({ samples, numOfSteps = 16 }: Props) {
                                             }}
                                             className={styles.cell__input}
                                         />
-                                        <div className={styles.cell__content} />
+                                        <div
+                                            className={`${
+                                                styles.cell__content
+                                            } ${styles[`cell__${trackId}`]}`}
+                                        />
                                     </label>
                                 );
                             })}

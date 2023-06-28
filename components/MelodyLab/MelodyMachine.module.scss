@@ -99,8 +99,27 @@ $rowGap: 1px;
     &__input {
         @include invisibleInput;
 
-        &:checked + #{$cell}__content {
-            background-color: #005da5;
+        &:checked + #{$cell}__0 {
+            background-color: #41a9f8;
+        }
+
+        &:checked + #{$cell}__1 {
+            background-color: #09c00f;
+        }
+        &:checked + #{$cell}__2 {
+            background-color: #c02109;
+        }
+        &:checked + #{$cell}__3 {
+            background-color: #f0f805;
+        }
+        &:checked + #{$cell}__4 {
+            background-color: #c309e8;
+        }
+        &:checked + #{$cell}__5 {
+            background-color: #e80945;
+        }
+        &:checked + #{$cell}__6 {
+            background-color: #0914e8;
         }
 
         &:focus-visible + #{$cell}__content {
