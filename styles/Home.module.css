@@ -1,40 +1,82 @@
+.container {
+    text-align: center;
+    max-width: 2000px;
+    margin-inline: auto;
+}
+
 .main {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     align-items: center;
-    /* padding: 6rem; */
     min-height: 100vh;
     background-color: #59bdf3;
     width: 90%;
-    margin-inline: auto;
+    margin-inline: auto; */
 }
 
 .title {
     color: white;
     font-size: 5rem;
     text-shadow: 1px 1px 10px rgb(37, 36, 36);
-    padding-top: 1em;
+    /* padding-top: 0.1em; */
+    height: 10vh;
 }
 
-.buttons {
-    padding-top: 7em;
-
+.buttons__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
-.buttons > button {
-    padding: 2em;
-    border-radius: 10px;
+.buttons__grid > .buttons__card {
     font-size: 1rem;
     font-weight: 700;
     background-color: white;
-    box-shadow: 1px 5px 2px black;
+    height: 45vh;
 }
 
-.buttons > button:hover {
-    box-shadow: 1px 5px 2px rgb(247, 245, 245);
+.buttons__grid > button:hover {
+    /* box-shadow: 1px 5px 2px rgb(247, 245, 245); */
     cursor: pointer;
+    opacity: 0.5;
+}
+
+.buttons__card {
+    position: relative;
+    background-image: url("https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.img {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    height: 45vh;
+}
+
+.button {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    /* background-color: #007bff; */
+    color: rgb(26, 25, 25);
+    border: none;
+    cursor: pointer;
+    transition: opacity 1s ease-in-out;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: white;
+    height: 45vh;
+    width: 100%;
+}
+
+.buttons__card:hover button {
+    display: block;
+}
+
+.buttons__card:hover button {
+    opacity: 0.8;
 }
