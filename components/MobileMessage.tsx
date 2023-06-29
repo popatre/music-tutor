@@ -13,7 +13,7 @@ export default function MobileMessage() {
                     Looks like you're using a tablet or mobile
                 </h2>
                 <p className={styles.sub}>
-                    This page is best used on a computer
+                    This page is best viewed on a computer
                 </p>
             </div>
         </main>

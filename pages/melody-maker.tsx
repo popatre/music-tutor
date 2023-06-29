@@ -4,7 +4,7 @@ import styles from "../components/MelodyLab/MelodyMachine.module.scss";
 export default function Melodymaker() {
     return (
         <div className={styles.container}>
-            <h1>Melody Maker</h1>
+            <h1 className={styles.title}>Melody Maker</h1>
             <MelodyLab
                 samples={[
                     { url: "/audio/B.wav", name: "" },

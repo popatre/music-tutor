@@ -3,11 +3,11 @@ $cellHeight: 10vh;
 $rowGap: 1px;
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // height: 100vh;
+    // flex-direction: column;
 }
 
 @mixin invisibleInput {
@@ -62,14 +62,13 @@ $rowGap: 1px;
         @include invisibleInput;
 
         &:checked + #{$lamp}__content {
-            //background-color: #ff5b06;
             /* moving note selector*/
 
             content: "";
             background-color: rgb(3, 121, 232);
             position: absolute;
             height: 71vh;
-            width: 100px;
+            width: 6vw;
             opacity: 0.3;
             margin: 0 auto;
             transition: background-color 0.1s;
@@ -78,12 +77,13 @@ $rowGap: 1px;
 
     &__content {
         /**** Lamp dots ****/
-        width: 14px;
+        width: 1px;
         height: 0px;
-        // border-radius: 8px;
-        // background-color: #f5f2f2;
+
+        border-radius: 8px;
+        background-color: #f5f2f2;
         //margin: 0 8px;
-        margin: 0 43px;
+        margin: 0 2.97vw;
     }
 }
 
@@ -137,7 +137,7 @@ $rowGap: 1px;
     &__content {
         // width: 30px;
         // min-width: 30px;
-        width: 100px;
+        width: 6vw;
         height: $cellHeight;
         border-radius: 3px;
         background-color: #f3f1f1;
@@ -174,4 +174,14 @@ $rowGap: 1px;
     &:hover {
         background-color: #4281b2;
     }
+}
+
+.title {
+    color: white;
+    font-size: 3rem;
+    font-family: "Monoton", cursive;
+    text-shadow: 2px 3px 4px rgb(0, 0, 0);
+    padding-bottom: 1em;
+    text-align: center;
+    margin-top: 0.5em;
 }
