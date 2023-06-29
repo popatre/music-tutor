@@ -58,6 +58,9 @@ export default function Home() {
                     <button onClick={() => handleClick("/beat-maker")}>
                         Beat Maker
                     </button>
+                    <button onClick={() => handleClick("/melody-maker")}>
+                        Melody Maker
+                    </button>
                 </div>
             </main>
         </>
