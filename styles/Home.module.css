@@ -47,6 +47,32 @@
     background-position: center;
 }
 
+.treble {
+    background-image: url("https://cdn-icons-png.flaticon.com/512/2/2227.png");
+}
+
+.bass {
+    background-image: url("https://www.englishstamp.com/docs/stock/stamps/1000-1500/1491.jpg");
+}
+
+.piano {
+    background-image: url("https://res.cloudinary.com/da5ahdojl/image/upload/f_auto,q_auto/Screenshot_2023-06-29_at_20.00.03_hskj7g");
+}
+.chords {
+    background-image: url("https://res.cloudinary.com/da5ahdojl/image/upload/f_auto,q_auto/Screenshot_2023-06-29_at_20.03.17_mrmfmk");
+}
+
+.interval {
+    background-image: url("https://res.cloudinary.com/da5ahdojl/image/upload/f_auto,q_auto/interval_o3pogw");
+}
+.melody {
+    background-image: url("https://res.cloudinary.com/da5ahdojl/image/upload/f_auto,q_auto/Screenshot_2023-06-29_at_20.08.45_djsbdb");
+}
+
+.beat {
+    background-image: url("https://res.cloudinary.com/da5ahdojl/image/upload/f_auto,q_auto/Screenshot_2023-06-29_at_20.10.19_de8lkz");
+}
+
 .img {
     margin: 0;
     padding: 0;

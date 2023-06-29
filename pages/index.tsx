@@ -10,12 +10,25 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
     const navLinks = [
-        { title: "Treble Clef Quiz", url: "/stave-challenge/treble" },
-        { title: "Bass Clef Quiz", url: "/stave-challenge/bass" },
-        { title: "Piano Player", url: "/piano-player" },
-        { title: "Interval Trainer", url: "/intervals/interval-trainer" },
-        { title: "Melody Maker", url: "/melody-maker" },
-        { title: "Beat Maker", url: "/beat-maker" },
+        {
+            title: "Treble Clef Quiz",
+            url: "/stave-challenge/treble",
+            class: "treble",
+        },
+        {
+            title: "Bass Clef Quiz",
+            url: "/stave-challenge/bass",
+            class: "bass",
+        },
+        { title: "Piano Player", url: "/piano-player", class: "piano" },
+        { title: "Chord Finder", url: "/chords", class: "chords" },
+        {
+            title: "Interval Trainer",
+            url: "/intervals/interval-trainer",
+            class: "interval",
+        },
+        { title: "Melody Maker", url: "/melody-maker", class: "melody" },
+        { title: "Beat Maker", url: "/beat-maker", class: "beat" },
     ];
 
     const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
@@ -39,7 +52,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.container}>
-                <h1 className={styles.title}>Music Theory </h1>
+                <h1 className={styles.title}>Music Lab </h1>
                 <div className={styles.buttons__grid}>
                     {navLinks.map((page) => {
                         return (
@@ -47,14 +60,10 @@ export default function Home() {
                                 title={page.title}
                                 url={page.url}
                                 onClick={handleClick}
+                                cssClass={page.class}
                             />
                         );
                     })}
-                    <NavCard
-                        title="Treble Clef Quiz"
-                        url="/stave-challenge/treble"
-                        onClick={handleClick}
-                    />
                 </div>
             </main>
         </>
