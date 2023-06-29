@@ -1,4 +1,4 @@
-$cellHeight: 70px;
+$cellHeight: 10vh;
 // $cellHeight: 40px;
 $rowGap: 1px;
 
@@ -6,7 +6,7 @@ $rowGap: 1px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 100vh;
     flex-direction: column;
 }
 
@@ -63,11 +63,12 @@ $rowGap: 1px;
 
         &:checked + #{$lamp}__content {
             //background-color: #ff5b06;
+            /* moving note selector*/
 
             content: "";
             background-color: rgb(3, 121, 232);
             position: absolute;
-            height: 560px;
+            height: 71vh;
             width: 100px;
             opacity: 0.3;
             margin: 0 auto;
@@ -76,10 +77,11 @@ $rowGap: 1px;
     }
 
     &__content {
+        /**** Lamp dots ****/
         width: 14px;
-        height: 14px;
-        border-radius: 8px;
-        //background-color: #f5f2f2;
+        height: 0px;
+        // border-radius: 8px;
+        // background-color: #f5f2f2;
         //margin: 0 8px;
         margin: 0 43px;
     }
@@ -94,10 +96,6 @@ $rowGap: 1px;
 .row {
     display: flex;
     column-gap: 1px;
-
-    & > *:nth-child(4n):not(:last-child) {
-        // margin-right: 8px;
-    }
 }
 
 .cell {
@@ -138,7 +136,7 @@ $rowGap: 1px;
 
     &__content {
         // width: 30px;
-        min-width: 30px;
+        // min-width: 30px;
         width: 100px;
         height: $cellHeight;
         border-radius: 3px;
