@@ -2,6 +2,14 @@ $cellHeight: 70px;
 // $cellHeight: 40px;
 $rowGap: 1px;
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-direction: column;
+}
+
 @mixin invisibleInput {
     border: 0px;
     clip: rect(0px, 0px, 0px, 0px);
@@ -88,7 +96,7 @@ $rowGap: 1px;
     column-gap: 1px;
 
     & > *:nth-child(4n):not(:last-child) {
-        margin-right: 8px;
+        // margin-right: 8px;
     }
 }
 
