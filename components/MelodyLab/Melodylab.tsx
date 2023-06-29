@@ -4,15 +4,14 @@ import * as Tone from "tone";
 import styles from "./MelodyMachine.module.scss";
 import Controls from "./Controls";
 
-const NOTE = "C2";
-
 type Track = {
     id: number;
-    sampler: Tone.Sampler;
+    synth: Tone.PolySynth;
+    note: string;
 };
 
 type Props = {
-    samples: { url: string; name: string }[];
+    samples: { name: string; note: string }[];
     numOfSteps?: number;
 };
 
@@ -29,17 +28,14 @@ export default function DrumMachine({ samples, numOfSteps = 16 }: Props) {
         Tone.Transport.bpm.value = 60;
         tracksRef.current = samples.map((sample, i) => ({
             id: i,
-            sampler: new Tone.Sampler({
-                urls: {
-                    [NOTE]: sample.url,
-                },
-            }).toDestination(),
+            synth: new Tone.PolySynth().toDestination(),
+            note: sample.note,
         }));
         seqRef.current = new Tone.Sequence(
             (time, step) => {
                 tracksRef.current.map((trk) => {
                     if (stepsRef.current[trk.id]?.[step]?.checked) {
-                        trk.sampler.triggerAttack(NOTE, time);
+                        trk.synth.triggerAttackRelease(trk.note, 0.1, time);
                     }
                     lampsRef.current[step].checked = true;
                 });
@@ -51,7 +47,7 @@ export default function DrumMachine({ samples, numOfSteps = 16 }: Props) {
 
         return () => {
             seqRef.current?.dispose();
-            tracksRef.current.map((trk) => void trk.sampler.dispose());
+            tracksRef.current.map((trk) => void trk.synth.dispose());
         };
     }, [samples, numOfSteps]);
 

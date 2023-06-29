@@ -7,13 +7,13 @@ export default function Melodymaker() {
             <h1 className={styles.title}>Melody Maker</h1>
             <MelodyLab
                 samples={[
-                    { url: "/audio/B.wav", name: "" },
-                    { url: "/audio/A.wav", name: "" },
-                    { url: "/audio/G.wav", name: "" },
-                    { url: "/audio/F.wav", name: "" },
-                    { url: "/audio/E.wav", name: "" },
-                    { url: "/audio/D.wav", name: "" },
-                    { url: "/audio/C.wav", name: "" },
+                    { name: "", note: "B4" },
+                    { name: "", note: "A4" },
+                    { name: "", note: "G4" },
+                    { name: "", note: "F4" },
+                    { name: "", note: "E4" },
+                    { name: "", note: "D4" },
+                    { name: "", note: "C4" },
                 ]}
             />
         </div>
