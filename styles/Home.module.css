@@ -50,10 +50,14 @@
 
 .treble {
     background-image: url("https://cdn-icons-png.flaticon.com/512/2/2227.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .bass {
     background-image: url("https://www.englishstamp.com/docs/stock/stamps/1000-1500/1491.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .piano {
